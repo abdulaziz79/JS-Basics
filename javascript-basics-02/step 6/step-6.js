@@ -1,22 +1,14 @@
-const images = document.querySelectorAll('.hover-image');
+document.addEventListener("DOMContentLoaded",()=>{
+  let containers = document.querySelectorAll("img")
 
+  containers.forEach((img)=>{
+    img.addEventListener("mouseover",()=>{
+      img.setAttribute('src', `./images/${img.id}_2.jpg`)
 
-function changeImageSource(image, index) {
-  const originalSrc = image.src; // Store the original source
-  
-  image.addEventListener('mouseover', function() {
-    // Replace the original image source with the new one
-    const newSrc = originalSrc.replace('.jpg', `_2.jpg`);
-    image.src = newSrc;
-  });
+      img.addEventListener("mouseout",()=>{
+        img.setAttribute('src',`./images/${img.id}.jpg`)
+      })
 
-  image.addEventListener('mouseout', function() {
-    // Revert the image source back to the original
-    image.src = originalSrc;
-  });
-}
-
-// Attach the event listeners to each image
-images.forEach((image, index) => {
-  changeImageSource(image, index);
-});
+    })
+  })
+})
