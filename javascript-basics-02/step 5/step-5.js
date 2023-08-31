@@ -1,15 +1,11 @@
-const images = document.querySelectorAll('.hover-image');
-
-
-function changeImageSource(image, index) {
-  const originalSrc = image.src; 
+document.addEventListener("DOMContentLoaded",()=>{
+    let containers = document.querySelectorAll("img")
   
-  image.addEventListener('mouseover', function() {
-    const newSrc = originalSrc.replace('.jpg', `_2.jpg`);
-    image.src = newSrc;
-  });
-
-}
-images.forEach((image, index) => {
-  changeImageSource(image, index);
-});
+    containers.forEach((img)=>{
+      img.addEventListener("mouseover",function(){
+        img.setAttribute('src', `./images/${img.id}_2.jpg`)
+  
+       
+      })
+    })
+  })
